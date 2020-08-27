@@ -13,6 +13,9 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class InformeDiarioGateway implements InformeDiarioBoundary {
 
     private static final int HEADER_LINE = 1;
@@ -22,7 +25,7 @@ public class InformeDiarioGateway implements InformeDiarioBoundary {
 
         try {
 
-            final Path path = Paths.get("src/main/resources/informes", "inf_diario_fi_201907.csv");
+            final Path path = Paths.get("src/main/resources/informes", "inf_diario_fi_201908.csv");
             Reader reader = Files.newBufferedReader(path, Charset.forName("UTF-8"));
 
             try (BufferedReader dataset = new BufferedReader(reader)) {

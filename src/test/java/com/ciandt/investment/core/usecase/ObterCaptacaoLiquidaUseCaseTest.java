@@ -1,12 +1,14 @@
 package com.ciandt.investment.core.usecase;
 
-import com.ciandt.investment.core.domain.InformeDiario;
-import com.ciandt.investment.dataprovider.InformeDiarioGateway;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
+import com.ciandt.investment.core.domain.Fundo;
+import com.ciandt.investment.core.domain.InformeDiario;
+import com.ciandt.investment.dataprovider.InformeDiarioGateway;
 
 public class ObterCaptacaoLiquidaUseCaseTest {
 
@@ -23,7 +25,21 @@ public class ObterCaptacaoLiquidaUseCaseTest {
     public void deveObterOsDadosdeInformesDiario() {
 
         List<InformeDiario> all = informeDiarioBoundary.getAll();
+        
+        
         Assert.assertEquals(325850, all.size());
+    }
+
+    
+    @Test
+    public void retornaCaptacaoLiquidaTest() {
+    	
+    	List<Fundo> retornaCaptacaoLiquida = obterCaptacaoLiquidaUseCase.retornaCaptacaoLiquida();
+    	
+    	Assert.assertNotNull(retornaCaptacaoLiquida);
+    	Assert.assertEquals(10, retornaCaptacaoLiquida.size());
+    	
+    	
     }
 
 }
